@@ -1,0 +1,173 @@
+.filtro-dropdown {
+  position: relative;
+  width: 250px;
+  user-select: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.dropdown-header {
+
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.seta {
+  transition: transform 0.3s ease;
+}
+
+.filtro-dropdown:focus-within .seta {
+  transform: rotate(180deg);
+}
+
+.dropdown-opcoes {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 0;
+  background-color: #000;
+  border: 1px solid #7c3aed;
+  border-radius: 8px;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-opcoes li {
+  padding: 12px 16px;
+  border-bottom: 1px solid #7c3aed;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-opcoes li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-opcoes li:hover {
+  background-color: #7c3aed;
+  color: white;
+}
+
+.filtro-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+
+.projetos-container {
+  padding: 2rem;
+  color: white;
+}
+
+.projetos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.projeto-card {
+
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.projeto-card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+button.btn-ver-mais {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #7c3aed;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+h3 {
+  color: #7c3aed;
+}
+
+p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+  color: white;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+
+.carousel {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.carousel img {
+  max-width: 90%;
+  border-radius: 8px;
+}
+
+.carousel button {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #7c3aed;
+  cursor: pointer;
+}
+
+.modal-buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.modal-buttons .btn {
+  background: #7c3aed;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+}

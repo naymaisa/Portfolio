@@ -1,0 +1,60 @@
+<section class="projetos-container">
+  <h2>Meus Projetos</h2>
+  <div class="filtro-container">
+    <div class="filtro-dropdown" (click)="toggleDropdown()" tabindex="0" (blur)="fecharDropdown()">
+      <div class="dropdown-header">
+        {{ categoriaSelecionada === 'todos' ? 'Todos os projetos' : categoriaSelecionada }}
+        <span class="seta">&#9662;</span>
+      </div>
+      <ul class="dropdown-opcoes" *ngIf="dropdownAberto">
+        <li (click)="filtrarCategoria('todos')">Todos os projetos</li>
+        <li (click)="filtrarCategoria('Cursos')">Cursos</li>
+        <li (click)="filtrarCategoria('Freelance')">Freelance</li>
+        <li (click)="filtrarCategoria('Documentação')">Documentação</li>
+        <li (click)="filtrarCategoria('Teste Técnico')">Teste Técnico</li>
+        <li (click)="filtrarCategoria('Projeto Pessoal')">Projeto Pessoal</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  <div class="projetos-grid">
+    <div class="projeto-card" *ngFor="let projeto of projetosFiltrados">
+      <img [src]="projeto.imagens[0]" [alt]="projeto.titulo" />
+      <h3>{{ projeto.titulo }}</h3>
+      <p>{{ projeto.descricaoCurta }}</p>
+      <button (click)="abrirModal(projeto)" class="btn-ver-mais">Ver mais</button>
+    </div>
+  </div>
+
+
+  <div class="modal" [class.show]="modalAberto" (click)="fecharModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="fecharModal()">&times;</span>
+      <h2>{{ projetoSelecionado?.titulo }}</h2>
+
+      <div class="carousel" *ngIf="projetoSelecionado">
+        <button class="prev" (click)="prevImagem()">&#10094;</button>
+        <img [src]="projetoSelecionado.imagens[imagemAtualIndex]" [alt]="projetoSelecionado.titulo" />
+        <button class="next" (click)="nextImagem()">&#10095;</button>
+      </div>
+
+      <p>{{ projetoSelecionado?.descricaoDetalhada }}</p>
+
+      <div class="modal-buttons" *ngIf="projetoSelecionado">
+        <a *ngIf="projetoSelecionado.codigoUrl" [href]="projetoSelecionado.codigoUrl" target="_blank" class="btn">
+          <i class="bi bi-github"></i> Código
+        </a>
+
+        <a *ngIf="projetoSelecionado.siteUrl" [href]="projetoSelecionado.siteUrl" target="_blank" class="btn">
+          <i class="bi" [ngClass]="projetoSelecionado.siteUrl.includes('youtube.com') ? 'bi-youtube' : 'bi-globe'"></i>
+          {{ projetoSelecionado.siteUrl.includes('youtube.com') ? 'Vídeo' : 'Site' }}
+        </a>
+      </div>
+
+
+    </div>
+  </div>
+</section>
