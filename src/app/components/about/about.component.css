@@ -13,9 +13,9 @@
 }
 
 .about-photo img {
-  margin-right: 200px;
+  margin-right: 100px;
   object-fit: cover;
-
+  margin-left: 100px;
 }
 
 .icons-grid {
@@ -24,7 +24,7 @@
   border-radius: 20px;
   box-shadow: 0 0 10px #7c3aed;
   padding: 2rem;
-  cursor: pointer;
+
 
 
   display: flex;
